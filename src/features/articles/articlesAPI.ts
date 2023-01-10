@@ -1,5 +1,5 @@
-import { Article } from '../types/Article';
-import { getAll, getById } from '../utils/fetch';
+import { Article } from '../../types/Article';
+import { getAll, getById } from '../../utils/fetch';
 
 const ARTICLES_API_URL = 'v3/articles';
 
