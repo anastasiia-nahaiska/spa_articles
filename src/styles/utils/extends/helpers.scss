@@ -1,0 +1,11 @@
+@mixin Container {
+  max-width: 300px;
+
+  @include onTablet {
+    max-width: 600px;
+  }
+
+  @include onDesktop {
+    max-width: 1120px;
+  }
+}
