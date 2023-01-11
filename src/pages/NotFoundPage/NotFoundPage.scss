@@ -1,6 +1,6 @@
-@import "../../styles/utils/variables.scss";
-@import "../../styles/utils/mixins/screens.scss";
-@import "../../styles/utils/extends/typography.scss";
+@import '../../styles/utils/variables.scss';
+@import '../../styles/utils/mixins/screens.scss';
+@import '../../styles/utils/extends/typography.scss';
 
 .notFoundPage {
   display: flex;
@@ -26,11 +26,11 @@
 
   &__button {
     padding: 8px 16px;
-    
+
     background-color: $c-primary;
 
     @include onTablet {
-      padding: 16px 32px
+      padding: 16px 32px;
     }
 
     &:hover {

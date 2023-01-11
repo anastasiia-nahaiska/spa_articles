@@ -1,9 +1,10 @@
-import { Box, Typography, Button } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { LastPage } from '@mui/icons-material';
 
 import './NotFoundPage.scss';
+
+import { Box, Typography, Button } from '@mui/material';
+import { Link } from 'react-router-dom';
+import { LastPage } from '@mui/icons-material';
 
 export const NotFoundPage: React.FC = () => (
   <Box component="main" className="notFoundPage">
