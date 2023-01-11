@@ -1,4 +1,6 @@
-@mixin Container {
+@import '../mixins/screens.scss';
+
+%container {
   max-width: 300px;
 
   @include onTablet {

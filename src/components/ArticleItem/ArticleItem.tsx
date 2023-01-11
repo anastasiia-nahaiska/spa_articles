@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 
 import './ArticleItem.scss';
 
@@ -14,42 +14,45 @@ import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import EastIcon from '@mui/icons-material/East';
 import { Link as RouterLink } from 'react-router-dom';
 
-// import { Article } from '../../types/Article';
+import { Article } from '../../types/Article';
+import { formatDate } from '../../utils/formatDete';
 
-// type Props = {
-//   article: Article;
-// };
+type Props = {
+  article: Article;
+};
 
-export const ArticleItem: React.FC = () => {
-  // const { id, title, summary, imageUrl, updatedAt } = article;
+export const ArticleItem: React.FC<Props> = ({ article }) => {
+  const { id, title, summary, imageUrl, publishedAt } = article;
+  const formatedDate = formatDate(publishedAt);
+  const visibleSummary = useMemo(
+    () => `${summary.slice(0, 100).trim()}...`,
+    [summary]
+  );
 
   return (
-    <Card className="articleItem">
-      <CardMedia
-        image={
-          'https://cdn.mos.cms.futurecdn.net/4MLyNZ66GSMUp7z49Q8k3K-320-80.jpg'
-        }
-        className="articleItem__image"
-      />
+    <Card className="articleItem" component={'li'}>
+      <CardMedia image={imageUrl} className="articleItem__image" />
       <CardContent className="articleItem__content">
         <Box className="articleItem__date">
           <CalendarTodayIcon className="articleItem__date_icon" />
           <Typography className="articleItem__date_text">
-            June 29th, 2021
+            {formatedDate}
           </Typography>
         </Box>
 
         <Box className="articleItem__preview">
           <Typography component="h3" className="articleItem__title">
-            The 2020 World&#39;s Most Valuable Brands
+            {title}
           </Typography>
           <Typography className="articleItem__summary">
-            Non sed molestie tortor massa vitae in mattis. Eget vel consequat
-            hendrerit commodo libero aliquam. Urna arcu nunc tortor vitae
-            pharetra...
+            {visibleSummary}
           </Typography>
 
-          <Link component={RouterLink} to=":id" className="articleItem__link">
+          <Link
+            component={RouterLink}
+            to={`:${id}`}
+            className="articleItem__link"
+          >
             Read more
             <EastIcon className="articleItem__link_icon" />
           </Link>

@@ -1,6 +1,6 @@
 import React from 'react';
-import { ArticleItem } from '../../components/ArticleItem';
+import { ArticlesList } from '../../features/articles/ArticlesList';
 
 export const HomePage: React.FC = () => {
-  return <ArticleItem />;
+  return <ArticlesList />;
 };
