@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import WestIcon from '@mui/icons-material/West';
 import { Image } from 'mui-image';
+import { CSSTransition } from 'react-transition-group';
 
 import { useAppSelector } from '../../app/hooks';
 import { getArticleById } from '../../features/articles/articlesAPI';
@@ -11,6 +12,7 @@ import { Typography, Box, Paper, Link } from '@mui/material';
 import { Article } from '../../types/Article';
 
 import './ArticlePage.scss';
+import { Loader } from '../../components/Loader';
 
 export const ArticlePage: React.FC = () => {
   const [article, setArticle] = useState<Article | null>(null);
@@ -48,24 +50,32 @@ export const ArticlePage: React.FC = () => {
 
   return (
     <Box component="main" className="article_page">
-      {article && (
-        <Box className="article_page__image">
-          <Image src={article.imageUrl} />
-        </Box>
-      )}
+      <Box className="article_page__image">
+        <Image src={article?.imageUrl || ''} alt="articles image" />
+      </Box>
 
       <Box className="article_page__content">
-        {article && (
-          <Paper className="article_page__paper">
-            <Typography className="article_page__title">
-              {article.title}
-            </Typography>
+        <Paper className="article_page__paper">
+          {loading ? (
+            <Loader />
+          ) : (
+            <>
+              <Typography className="article_page__title">
+                {article?.title}
+              </Typography>
 
-            <Typography className="article_page__summary">
-              {article.summary}
+              <Typography className="article_page__summary">
+                {article?.summary}
+              </Typography>
+            </>
+          )}
+
+          {error && (
+            <Typography className="articles__message">
+              Something went wrong &#x1F622;
             </Typography>
-          </Paper>
-        )}
+          )}
+        </Paper>
 
         <Link to="/" component={RouterLink} className="article_page__link">
           <WestIcon className="article_page__link_icon" />
