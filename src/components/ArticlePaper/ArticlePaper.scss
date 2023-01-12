@@ -22,7 +22,9 @@
 
   &__title {
     margin-bottom: 20px;
+
     @extend %h2-typography;
+    text-align: center;
 
     @include onTablet {
       margin-bottom: 50px;

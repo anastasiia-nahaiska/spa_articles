@@ -14,8 +14,9 @@
   "plugins": ["react", "@typescript-eslint"],
   "extends": [
     "plugin:react/recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "plugin:prettier/recommended",
+    "prettier"
   ],
   "rules": {
     "semi": "off",
@@ -30,7 +31,6 @@
     ],
     "no-redeclare": [2, { "builtinGlobals": true }],
     "no-console": 2,
-    "operator-linebreak": ["error", "before"],
     "brace-style": [2, "1tbs"],
     "arrow-body-style": 0,
     "arrow-parens": 0,
