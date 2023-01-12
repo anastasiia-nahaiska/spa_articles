@@ -45,7 +45,11 @@
       },
       { "blankLine": "always", "prev": "directive", "next": "*" },
       { "blankLine": "always", "prev": "block-like", "next": "*" },
-      { "blankLine": "always", "prev": "*", "next": ["return", "block-like", "multiline-expression"]}
+      {
+        "blankLine": "always",
+        "prev": "*",
+        "next": ["return", "block-like", "multiline-expression"]
+      }
     ]
   }
 }
