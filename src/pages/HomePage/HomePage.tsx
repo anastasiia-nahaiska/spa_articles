@@ -31,6 +31,7 @@ export const HomePage: React.FC = () => {
         value={searchParams.get('query') || ''}
         onChange={(e) => onChange(e)}
         className="homePage__search_input"
+        placeholder="Search"
         startAdornment={
           <InputAdornment position="start">
             <SearchIcon className="homePage__search_icon" />

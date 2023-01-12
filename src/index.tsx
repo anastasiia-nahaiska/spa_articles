@@ -15,6 +15,14 @@ const theme = createTheme({
   typography: {
     fontFamily: ['Montserrat', 'sans-serif'].join(','),
   },
+  transitions: {
+    duration: {
+      standard: 300,
+    },
+    easing: {
+      easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+    },
+  },
 });
 
 const root = ReactDOM.createRoot(
