@@ -13,6 +13,8 @@ import {
 import CalendarTodayIcon from '@mui/icons-material/CalendarToday';
 import EastIcon from '@mui/icons-material/East';
 import { Link as RouterLink } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
+import Highlighter from 'react-highlight-words';
 
 import { Article } from '../../types/Article';
 import { formatDate } from '../../utils/formatDete';
@@ -23,6 +25,9 @@ type Props = {
 
 export const ArticleItem: React.FC<Props> = ({ article }) => {
   const { id, title, summary, imageUrl, publishedAt } = article;
+  const [searchParams] = useSearchParams();
+
+  const query = searchParams.get('query') || '';
   const formatedDate = formatDate(publishedAt);
   const visibleSummary = useMemo(
     () => `${summary.slice(0, 100).trim()}...`,
@@ -32,6 +37,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
   return (
     <Card className="articleItem" component={'li'}>
       <CardMedia image={imageUrl} className="articleItem__image" />
+
       <CardContent className="articleItem__content">
         <Box className="articleItem__date">
           <CalendarTodayIcon className="articleItem__date_icon" />
@@ -41,11 +47,24 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
         </Box>
 
         <Box className="articleItem__preview">
-          <Typography component="h3" className="articleItem__title">
-            {title}
+          <Typography component="h3">
+            <Highlighter
+              className="articleItem__title"
+              highlightClassName="YourHighlightClass"
+              searchWords={[query]}
+              autoEscape={true}
+              textToHighlight={title}
+            />
           </Typography>
-          <Typography className="articleItem__summary">
-            {visibleSummary}
+
+          <Typography className="articleItem__summary_wrapper">
+            <Highlighter
+              className="articleItem__summary"
+              highlightClassName="YourHighlightClass"
+              searchWords={[query]}
+              autoEscape={true}
+              textToHighlight={visibleSummary}
+            />
           </Typography>
 
           <Link

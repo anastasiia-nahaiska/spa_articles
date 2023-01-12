@@ -76,9 +76,11 @@
   }
 
   &__summary {
-    margin-bottom: auto;
-
     @extend %body-typography;
+
+    &_wrapper {
+      margin-bottom: auto;
+    }
   }
 
   &__link {
