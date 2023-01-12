@@ -10,7 +10,7 @@
 
   color: $c-primary;
 
-   @include onDesktop {
+  @include onDesktop {
     height: 530px;
   }
 

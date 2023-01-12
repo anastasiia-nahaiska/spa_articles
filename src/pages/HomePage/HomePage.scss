@@ -1,0 +1,40 @@
+@import '../../styles/utils/extends/helpers.scss';
+@import '../../styles/utils/extends/typography.scss';
+@import '../../styles/utils/mixins/screens.scss';
+@import '../../styles/utils/variables.scss';
+
+.homePage {
+  margin: auto;
+  padding: 50px 0;
+
+  @extend %container;
+  @extend %body-typography;
+
+  text-align: left;
+
+  &__search {
+    margin-bottom: 10px;
+
+    font-weight: 600;
+
+     &_input {
+      margin-bottom: 40px;
+      width: 100%;
+      height: 50px;
+
+      transition: border-color 0.3s ease;
+      border-color: $c-border;
+
+      @include onTablet {
+        width: 50%;
+      }
+     }
+  }
+
+  &__count {
+    margin-bottom: 46px;
+    border-bottom: 1px solid $c-border;
+
+    font-weight: 600;
+  }
+}
