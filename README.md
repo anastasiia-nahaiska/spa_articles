@@ -38,4 +38,4 @@ npm start
 According to the requirements, (in particular `CSS preprocessors should be used`) I used
 almost everywhere scss modules for styling. I think that is a good prictice to separate styling and logic.
 
-In any case using Material UI ways for styling (such us `sx property`, `theming`, `makeStyles()`, etc) won't be a problem for me.
+In any case using Material UI ways for styling (such us `breakpoints properties`, `theming`, `makeStyles()`, etc) won't be a problem for me.
