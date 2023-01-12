@@ -3,14 +3,12 @@
 
 .article_page {
   position: relative;
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
 
   min-height: 100vh;
 
   &__content {
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
 
     margin: 0 auto;
     width: 100%;

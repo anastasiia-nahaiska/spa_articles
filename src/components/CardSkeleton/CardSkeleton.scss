@@ -1,8 +1,8 @@
 @import '../../styles/utils/mixins/screens.scss';
+@import '../../styles/utils/extends/helpers.scss';
 
 .card_skeleton {
-  display: flex;
-  flex-direction: column;
+  @extend %flex-column;
 
   height: 430px;
 
@@ -12,8 +12,7 @@
 
   &__content {
     flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+    @extend %flex-column;
 
     padding: 24px;
   }

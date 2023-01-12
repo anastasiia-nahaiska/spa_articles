@@ -1,6 +1,6 @@
+@import '../../styles/utils/extends/helpers.scss';
+
 .loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  @extend %flex-row-center;
   flex-grow: 1;
 }

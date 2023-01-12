@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 
 import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
@@ -19,7 +19,7 @@ export const ArticlePage: React.FC = () => {
 
   const { articleId } = useParams();
 
-  const loadArticle = async (id: number) => {
+  const loadArticle = useCallback(async (id: number) => {
     try {
       setLoading(true);
 
@@ -31,7 +31,7 @@ export const ArticlePage: React.FC = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, []);
 
   useEffect(() => {
     if (!articleId) {
@@ -42,8 +42,6 @@ export const ArticlePage: React.FC = () => {
 
     loadArticle(articleIdAsNumber);
   }, []);
-
-  console.log(article?.summary);
 
   return (
     <Box component="main" className="article_page">

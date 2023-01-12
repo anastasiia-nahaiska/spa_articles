@@ -11,3 +11,14 @@
     max-width: 1120px;
   }
 }
+
+%flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+%flex-row-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

@@ -1,19 +1,15 @@
-import React, { useCallback, useMemo, useState } from 'react';
+import React, { useCallback } from 'react';
 
 import './HomePage.scss';
 
 import { Typography, Box, OutlinedInput, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
-import { useAppSelector } from '../../app/hooks';
 import { Articles } from '../../features/articles/Articles';
 import { useSearchParams } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { articles, loading, error } = useAppSelector(
-    (state) => state.articles
-  );
 
   const onChange = useCallback(
     (event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>) => {

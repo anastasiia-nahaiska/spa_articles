@@ -16,9 +16,10 @@ export const filterByPriorityFields = (
   fields.forEach((field) => {
     const matches = articles.filter(
       (article) =>
-        article[field].toLowerCase().includes(formatQuery) &&
-        !filteredArticles.includes(article)
+        article[field].toLowerCase().includes(formatQuery)
+          && !filteredArticles.includes(article)
     );
+
     filteredArticles.push(...matches);
   });
 
