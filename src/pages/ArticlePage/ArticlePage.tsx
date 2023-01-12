@@ -4,15 +4,13 @@ import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import WestIcon from '@mui/icons-material/West';
 import { Image } from 'mui-image';
+import { Box, Link } from '@mui/material';
 
-import { useAppSelector } from '../../app/hooks';
 import { getArticleById } from '../../features/articles/articlesAPI';
-import { Typography, Box, Paper, Link } from '@mui/material';
 import { Article } from '../../types/Article';
 
 import './ArticlePage.scss';
-import { Loader } from '../../components/Loader';
-import { Message } from '../../components/Message';
+import { ArticlePaper } from '../../components/ArticlePaper';
 
 export const ArticlePage: React.FC = () => {
   const [article, setArticle] = useState<Article | null>(null);
@@ -54,28 +52,7 @@ export const ArticlePage: React.FC = () => {
       </Box>
 
       <Box className="article_page__content">
-        <Paper className="article_page__paper">
-          {loading ? (
-            <Loader />
-          ) : (
-            <>
-              <Typography className="article_page__title">
-                {article?.title}
-              </Typography>
-
-              <Typography className="article_page__summary">
-                {article?.summary}
-              </Typography>
-            </>
-          )}
-
-          {error && (
-            <Message
-              text="Something went wrong &#x1F622;"
-              className="article_page__message"
-            />
-          )}
-        </Paper>
+        <ArticlePaper article={article} loading={loading} error={error} />
 
         <Link to="/" component={RouterLink} className="article_page__link">
           <WestIcon className="article_page__link_icon" />

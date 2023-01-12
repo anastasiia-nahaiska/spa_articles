@@ -1,0 +1,49 @@
+@import '../../styles/utils/extends/helpers.scss';
+@import '../../styles/utils/extends/typography.scss';
+@import '../../styles/utils/mixins/screens.scss';
+
+.article_paper {
+  position: absolute;
+  top: 15vh;
+  bottom: 15vh;
+  left: 50%;
+
+  display: flex;
+  flex-direction: column;
+
+  width: 100%;
+  padding: 10px 25px;
+  @extend %container;
+
+  transform: translateX(-50%);
+
+  @include onTablet {
+    padding: 50px 75px;
+  }
+
+  &__title {
+    margin-bottom: 20px;
+    @extend %h2-typography;
+
+    @include onTablet {
+      margin-bottom: 50px;
+    }
+  }
+
+  &__summary {
+    @extend %body-typography;
+    text-align: justify;
+
+    @include onDesktop {
+      font-size: 18px;
+      line-height: 27px;
+    }
+  }
+
+  &__message {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

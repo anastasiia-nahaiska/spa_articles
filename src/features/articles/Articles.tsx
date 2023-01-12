@@ -5,15 +5,14 @@ import './Articles.scss';
 import { Box, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
 
-import { ArticleItem } from '../../components/ArticleItem';
 import { useAppDispatch, useAppSelector } from '../../app/hooks';
 import * as articlesAction from './articlesSlice';
 import { Article } from '../../types/Article';
 import { filterByPriorityFields } from '../../utils/filterByPriorityFields';
 import { FilterField } from '../../types/FilterField';
 import { useDebounce } from '../../hooks/useDebounce';
-import { CardSkeleton } from '../../components/CardSkeleton';
 import { Message } from '../../components/Message';
+import { ArticlesList } from '../../components/ArticlesList';
 
 export const Articles: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -37,19 +36,11 @@ export const Articles: React.FC = () => {
     );
   }, [articles, debouncedQuery]);
 
-  const skeletonArray = Array(6).fill('');
-
   return (
     <Box className="articles">
       <Typography className="articles__count">{`Results: ${filteredArticles.length}`}</Typography>
 
-      <Box className="articles__list" component="ul">
-        {loading
-          ? skeletonArray.map((el, i) => <CardSkeleton key={i} />)
-          : filteredArticles.map((article) => (
-              <ArticleItem key={article.id} article={article} />
-            ))}
-      </Box>
+      <ArticlesList articles={filteredArticles} />
 
       {error.length > 0 && <Message text="Something went wrong &#x1F622;" />}
 
