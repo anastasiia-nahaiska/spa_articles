@@ -50,7 +50,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
           <Typography component="h3">
             <Highlighter
               className="articleItem__title"
-              highlightClassName="YourHighlightClass"
+              highlightClassName="articleItem__highlight"
               searchWords={[query]}
               autoEscape={true}
               textToHighlight={title}
@@ -60,7 +60,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
           <Typography className="articleItem__summary_wrapper">
             <Highlighter
               className="articleItem__summary"
-              highlightClassName="YourHighlightClass"
+              highlightClassName="articleItem__highlight"
               searchWords={[query]}
               autoEscape={true}
               textToHighlight={visibleSummary}

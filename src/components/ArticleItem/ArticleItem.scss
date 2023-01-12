@@ -83,6 +83,10 @@
     }
   }
 
+  &__highlight {
+    background-color: $c-highlight;
+  }
+
   &__link {
     display: flex;
     align-items: center;

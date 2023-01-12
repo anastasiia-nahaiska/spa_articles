@@ -56,9 +56,15 @@ export const Articles: React.FC = () => {
         </Typography>
       )}
 
-      {!loading && !error.length && !filteredArticles.length && (
+      {!loading && !error.length && !articles.length && (
         <Typography className="articles__message">
           No articles yet &#x1F622;
+        </Typography>
+      )}
+
+      {!loading && !error.length && !filteredArticles.length && (
+        <Typography className="articles__message">
+          There are no matches &#x1F622;
         </Typography>
       )}
     </Box>
