@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo } from 'react';
 
-import './ArticleList.scss';
+import './Articles.scss';
 
 import { Box, Typography } from '@mui/material';
 import { useSearchParams } from 'react-router-dom';
@@ -14,7 +14,7 @@ import { FilterField } from '../../types/FilterField';
 import { useDebounce } from '../../hooks/useDebounce';
 import { CardSkeleton } from '../../components/CardSkeleton';
 
-export const ArticlesList: React.FC = () => {
+export const Articles: React.FC = () => {
   const dispatch = useAppDispatch();
   const { articles, loading, error } = useAppSelector(
     (state) => state.articles

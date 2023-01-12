@@ -3,16 +3,15 @@ import './App.scss';
 import { Route, Routes } from 'react-router-dom';
 import { NotFoundPage } from './pages/NotFoundPage/NotFoundPage';
 import { HomePage } from './pages/HomePage';
+import { ArticlePage } from './pages/ArticlePage';
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<HomePage />}>
-          <Route
-            path=":articleId"
-            element={<h1>Articles content will be here</h1>}
-          />
+        <Route path="/">
+          <Route index element={<HomePage />} />
+          <Route path=":articleId" element={<ArticlePage />} />
         </Route>
         <Route path="*" element={<NotFoundPage />} />
       </Routes>

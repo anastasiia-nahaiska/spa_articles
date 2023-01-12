@@ -69,7 +69,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
 
           <Link
             component={RouterLink}
-            to={`:${id}`}
+            to={`/:${id}`}
             className="articleItem__link"
           >
             Read more

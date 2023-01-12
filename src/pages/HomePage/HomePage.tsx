@@ -6,7 +6,7 @@ import { Typography, Box, OutlinedInput, InputAdornment } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 
 import { useAppSelector } from '../../app/hooks';
-import { ArticlesList } from '../../features/articles/ArticlesList';
+import { Articles } from '../../features/articles/Articles';
 import { useSearchParams } from 'react-router-dom';
 
 export const HomePage: React.FC = () => {
@@ -41,7 +41,7 @@ export const HomePage: React.FC = () => {
           </InputAdornment>
         }
       />
-      <ArticlesList />
+      <Articles />
     </Box>
   );
 };
