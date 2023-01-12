@@ -13,6 +13,7 @@ import { filterByPriorityFields } from '../../utils/filterByPriorityFields';
 import { FilterField } from '../../types/FilterField';
 import { useDebounce } from '../../hooks/useDebounce';
 import { CardSkeleton } from '../../components/CardSkeleton';
+import { Message } from '../../components/Message';
 
 export const Articles: React.FC = () => {
   const dispatch = useAppDispatch();
@@ -50,22 +51,14 @@ export const Articles: React.FC = () => {
             ))}
       </Box>
 
-      {error.length > 0 && (
-        <Typography className="articles__message">
-          Something went wrong &#x1F622;
-        </Typography>
-      )}
+      {error.length > 0 && <Message text="Something went wrong &#x1F622;" />}
 
       {!loading && !error.length && !articles.length && (
-        <Typography className="articles__message">
-          No articles yet &#x1F622;
-        </Typography>
+        <Message text="No articles yet &#x1F622;" />
       )}
 
       {!loading && !error.length && !filteredArticles.length && (
-        <Typography className="articles__message">
-          There are no matches &#x1F622;
-        </Typography>
+        <Message text="There are no matches &#x1F622;" />
       )}
     </Box>
   );

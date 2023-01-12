@@ -4,7 +4,6 @@ import { useParams } from 'react-router-dom';
 import { Link as RouterLink } from 'react-router-dom';
 import WestIcon from '@mui/icons-material/West';
 import { Image } from 'mui-image';
-import { CSSTransition } from 'react-transition-group';
 
 import { useAppSelector } from '../../app/hooks';
 import { getArticleById } from '../../features/articles/articlesAPI';
@@ -13,6 +12,7 @@ import { Article } from '../../types/Article';
 
 import './ArticlePage.scss';
 import { Loader } from '../../components/Loader';
+import { Message } from '../../components/Message';
 
 export const ArticlePage: React.FC = () => {
   const [article, setArticle] = useState<Article | null>(null);
@@ -20,7 +20,6 @@ export const ArticlePage: React.FC = () => {
   const [error, setError] = useState(false);
 
   const { articleId } = useParams();
-  const { articles } = useAppSelector((state) => state.articles);
 
   const loadArticle = async (id: number) => {
     try {
@@ -71,9 +70,10 @@ export const ArticlePage: React.FC = () => {
           )}
 
           {error && (
-            <Typography className="articles__message">
-              Something went wrong &#x1F622;
-            </Typography>
+            <Message
+              text="Something went wrong &#x1F622;"
+              className="article_page__message"
+            />
           )}
         </Paper>
 
