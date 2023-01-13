@@ -6,6 +6,11 @@
   @extend %flex-column;
 
   min-height: 100vh;
+  padding-bottom: 25px;
+
+  @include onTablet {
+    padding-bottom: 50px;
+  }
 
   &__content {
     @extend %flex-column;
@@ -25,8 +30,6 @@
     display: flex;
     align-items: center;
     gap: 6px;
-
-    margin-bottom: 7vh;
 
     @extend %body-typography;
     font-weight: 700;
