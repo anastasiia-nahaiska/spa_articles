@@ -28,7 +28,8 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
   const [searchParams] = useSearchParams();
 
   const query = searchParams.get('query') || '';
-  const formatedDate = formatDate(publishedAt);
+  const trimedQuery = useMemo(() => query.trim(), [query]);
+  const formatedDate = useMemo(() => formatDate(publishedAt), [publishedAt]);
   const visibleSummary = useMemo(
     () => `${summary.slice(0, 100).trim()}...`,
     [summary]
@@ -51,7 +52,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
             <Highlighter
               className="articleItem__title"
               highlightClassName="articleItem__highlight"
-              searchWords={[query]}
+              searchWords={[trimedQuery]}
               autoEscape={true}
               textToHighlight={title}
             />
@@ -61,7 +62,7 @@ export const ArticleItem: React.FC<Props> = ({ article }) => {
             <Highlighter
               className="articleItem__summary"
               highlightClassName="articleItem__highlight"
-              searchWords={[query]}
+              searchWords={[trimedQuery]}
               autoEscape={true}
               textToHighlight={visibleSummary}
             />

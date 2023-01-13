@@ -42,7 +42,9 @@ export const Articles: React.FC = () => {
 
       <ArticlesList articles={filteredArticles} />
 
-      {error.length > 0 && <Message text="Something went wrong &#x1F622;" />}
+      {error.length > 0 && !articles.length && (
+        <Message text="Something went wrong &#x1F622;" />
+      )}
 
       {!loading && !error.length && !articles.length && (
         <Message text="No articles yet &#x1F622;" />
