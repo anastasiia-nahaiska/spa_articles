@@ -1,6 +1,6 @@
 # About
 
-This is an adaptive one-page program with articles about space.
+This is an adaptive single-page application with articles about space.
 Explore the article by clicking "read more", search for articles on a query and feel free to share your filtering results.
 
 - [DEMO LINK](https://spa-articles.vercel.app/)
