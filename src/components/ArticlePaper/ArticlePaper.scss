@@ -1,23 +1,24 @@
 @import '../../styles/utils/extends/helpers.scss';
 @import '../../styles/utils/extends/typography.scss';
 @import '../../styles/utils/mixins/screens.scss';
+@import '../../styles/utils/variables.scss';
 
 .article_paper {
-  position: absolute;
-  top: 15vh;
-  bottom: 15vh;
-  left: 50%;
-
+  margin-top: 100px;
+  margin-bottom: 25px;
   @extend %flex-column;
 
   width: 100%;
+  min-height: calc($h-screen - $h-back-link-phone - 50px - 100px);
   padding: 10px 25px;
   @extend %container;
 
-  transform: translateX(-50%);
-
   @include onTablet {
+    margin-top: 150px;
+    margin-bottom: 35px;
     padding: 50px 75px;
+
+    min-height: calc($h-screen - $h-back-link-phone - 80px - 150px);
   }
 
   &__title {
