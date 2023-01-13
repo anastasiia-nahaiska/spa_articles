@@ -1,8 +1,6 @@
 @import '../../styles/utils/extends/helpers.scss';
 @import '../../styles/utils/extends/typography.scss';
 
-
-
 .article_page {
   position: relative;
   @extend %flex-column;

@@ -10,7 +10,7 @@
 
   width: 100%;
   min-height: calc($h-screen - $h-back-link-phone - 50px - 100px);
-  padding: 10px 25px;
+  padding: 15px 25px;
   @extend %container;
 
   @include onTablet {
